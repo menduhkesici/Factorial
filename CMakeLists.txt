@@ -1,7 +1,9 @@
 project(factorial)
+
 cmake_minimum_required(VERSION 3.16)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS on)
+
 include(FetchContent)
 
 # Fetch google-test
@@ -18,12 +20,12 @@ FetchContent_MakeAvailable(googlebenchmark)
 
 include(src/CMakeLists.txt)
 
-add_executable(${CMAKE_PROJECT_NAME}_unittest ${CMAKE_PROJECT_NAME}_unittest.cpp)
+add_executable(${CMAKE_PROJECT_NAME}_unittest unittest.cpp)
 target_link_libraries(${CMAKE_PROJECT_NAME}_unittest gtest_main src)
 add_test(NAME ${CMAKE_PROJECT_NAME}_test COMMAND ${CMAKE_PROJECT_NAME}_unittest)
 enable_testing()
 
-add_executable(${CMAKE_PROJECT_NAME}_bench ${CMAKE_PROJECT_NAME}_bench.cpp)
+add_executable(${CMAKE_PROJECT_NAME}_bench bench.cpp)
 target_link_libraries(${CMAKE_PROJECT_NAME}_bench src benchmark)
 
 add_executable(${CMAKE_PROJECT_NAME} main.cpp)
