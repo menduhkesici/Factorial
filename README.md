@@ -1,8 +1,6 @@
 # C++ Factorial
 
-C++ program to calculate factorial of a number
-
-It includes CMake build system, unit testing and benchmarking.
+C++ program with CMake build system, unit testing and benchmarking to calculate factorial of a number
 
 ## Build
 
