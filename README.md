@@ -1,32 +1,31 @@
 # C++ Factorial
 
-C++ program with CMake build system, unit testing and benchmarking to calculate factorial of a number
+C++ program with CMake build system, unit-testing and benchmarking to calculate factorial of a number
 
 ## Build
 
-Building requires google-benchmark and google-test.
-They are fetched by cmake.
+CMake fetches google-benchmark and google-test automatically.
 
 Install prerequisites on Ubuntu/Debian:
 ```
-sudo apt-get install libbenchmark-dev cmake
+sudo apt-get install cmake
 ```
 
 Build:
 ```
-mkdir build && cd build
+mkdir -p build && cd $_
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make
 ```
 
 Test:
 ```
-./factorial_unittest
+ctest
 ```
 
 Benchmark:
 ```
-./factorial_bench
+./bench_factorial --benchmark_time_unit=ms
 ```
 
 Run main application:

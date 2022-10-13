@@ -2,4 +2,4 @@
 
 #include <string>
 
-std::string factorial(uint64_t n);
+std::string factorial(long long n);

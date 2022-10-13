@@ -3,17 +3,37 @@
 
 #include "include/factorial.hpp"
 
+TEST(FactorialTest, factorialM1241241)
+{
+  EXPECT_EQ(factorial(-1241241), "1");
+}
+
+TEST(FactorialTest, factorialM10)
+{
+  EXPECT_EQ(factorial(-10), "1");
+}
+
+TEST(FactorialTest, factorial1)
+{
+  EXPECT_EQ(factorial(1), "1");
+}
+
+TEST(FactorialTest, factorial2)
+{
+  EXPECT_EQ(factorial(2), "2");
+}
+
 TEST(FactorialTest, factorial10)
 {
-  EXPECT_EQ(factorial(10), std::string("3628800"));
+  EXPECT_EQ(factorial(10), "3628800");
 }
 
 TEST(FactorialTest, factorial100)
 {
   EXPECT_EQ(factorial(100),
-            std::string("93326215443944152681699238856266700490715968264381621468592"
-                        "96389521759999322991560894146397615651828625369792082722375"
-                        "8251185210916864000000000000000000000000"));
+            "93326215443944152681699238856266700490715968264381621468592"
+            "96389521759999322991560894146397615651828625369792082722375"
+            "8251185210916864000000000000000000000000");
 }
 
 static const char *factorial_2419 =
@@ -117,5 +137,5 @@ static const char *factorial_2419 =
 
 TEST(FactorialTest, factorial2419)
 {
-  EXPECT_EQ(factorial(2419), std::string(factorial_2419));
+  EXPECT_EQ(factorial(2419), factorial_2419);
 }

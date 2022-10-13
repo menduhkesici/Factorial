@@ -8,15 +8,18 @@
 
 const int digits_per_vector_element = 12;
 
-std::string factorial(uint64_t n)
+std::string factorial(long long n)
 {
+  if (n <= 1)
+    return "1";
+
   uint64_t max_element_per_vector_element = 1;
   for (int i = 0; i < digits_per_vector_element; i++)
   {
     max_element_per_vector_element *= 10;
   }
 
-  assert(n <= (std::numeric_limits<uint64_t>::max() / max_element_per_vector_element - 1));
+  assert((uint64_t)n <= (std::numeric_limits<uint64_t>::max() / max_element_per_vector_element - 1));
 
   std::vector<uint64_t> result_vec(1, 1);
   for (uint64_t i = 2; i <= n; i++)
