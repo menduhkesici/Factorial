@@ -1,4 +1,3 @@
-
 #include <benchmark/benchmark.h>
 
 #include "include/factorial.hpp"
