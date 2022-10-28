@@ -7,10 +7,15 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS on)
 include(FetchContent)
 include(src/CMakeLists.txt)
 
+add_executable(${CMAKE_PROJECT_NAME} main.cpp)
+target_link_libraries(${CMAKE_PROJECT_NAME} src)
+
 # Fetch google-test and build unittest executable
 FetchContent_Declare(googletest
         GIT_REPOSITORY https://github.com/google/googletest.git
         GIT_TAG release-1.12.1)
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 add_executable(unittest_${CMAKE_PROJECT_NAME} unittest.cpp)
 target_link_libraries(unittest_${CMAKE_PROJECT_NAME} gtest_main src)
@@ -25,6 +30,3 @@ FetchContent_Declare(googlebenchmark
 FetchContent_MakeAvailable(googlebenchmark)
 add_executable(bench_${CMAKE_PROJECT_NAME} bench.cpp)
 target_link_libraries(bench_${CMAKE_PROJECT_NAME} src benchmark)
-
-add_executable(${CMAKE_PROJECT_NAME} main.cpp)
-target_link_libraries(${CMAKE_PROJECT_NAME} src)
