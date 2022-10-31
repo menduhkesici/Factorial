@@ -30,4 +30,4 @@ FetchContent_Declare(googlebenchmark
         GIT_TAG v1.7.0)
 FetchContent_MakeAvailable(googlebenchmark)
 add_executable(bench_${CMAKE_PROJECT_NAME} bench.cpp)
-target_link_libraries(bench_${CMAKE_PROJECT_NAME} src benchmark)
+target_link_libraries(bench_${CMAKE_PROJECT_NAME} benchmark src)
