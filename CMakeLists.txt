@@ -23,6 +23,7 @@ add_test(NAME unittest_${CMAKE_PROJECT_NAME} COMMAND unittest_${CMAKE_PROJECT_NA
 enable_testing()
 
 # Fetch google-benchmark and build benchmark executable
+add_compile_definitions(BENCHMARK_STATIC_DEFINE)
 set(BENCHMARK_ENABLE_TESTING OFF) # Disable testing of benchmark library
 FetchContent_Declare(googlebenchmark
         GIT_REPOSITORY https://github.com/google/benchmark.git
